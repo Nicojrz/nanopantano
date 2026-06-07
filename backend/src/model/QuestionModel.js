@@ -1,5 +1,3 @@
-const util = require("util");
-
 class QuestionModel {
   constructor(dbConfig) {
     this.dbConfig = dbConfig;
@@ -7,25 +5,23 @@ class QuestionModel {
 
   async findById(id) {
     const connection = this.dbConfig.createConnection();
-    const query = util.promisify(connection.query).bind(connection);
 
     try {
-      const rows = await query("SELECT * FROM tablajson WHERE idEjercicio = ?", [id]);
+      const [rows] = await connection.query("SELECT * FROM tablajson WHERE idEjercicio = ?", [id]);
       return rows.map(QuestionModel.parseRow);
     } finally {
-      connection.end();
+      await connection.end();
     }
   }
 
   async findAll() {
     const connection = this.dbConfig.createConnection();
-    const query = util.promisify(connection.query).bind(connection);
 
     try {
-      const rows = await query("SELECT * FROM tablajson");
+      const [rows] = await connection.query("SELECT * FROM tablajson");
       return rows.map(QuestionModel.parseRow);
     } finally {
-      connection.end();
+      await connection.end();
     }
   }
 

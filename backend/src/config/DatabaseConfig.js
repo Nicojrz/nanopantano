@@ -1,7 +1,7 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const path = require("path");
 
-require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+require("dotenv").config({ path: path.resolve(__dirname, "../../../.env") });
 
 class DatabaseConfig {
   constructor() {
@@ -19,7 +19,7 @@ class DatabaseConfig {
       password: this.password,
       database: this.database,
       port: this.port,
-    });
+    }).promise();
   }
 }
 
