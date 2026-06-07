@@ -3,7 +3,7 @@
 ### setup
 ```mermaid
 graph LR
-    A[Write Code] --> B(Push to GitHub)
-    B --> C{Tests Pass?}
-    C -->|Yes| D[Deploy]
-    C -->|No| E[Fix Bug]
+    A(git clone) --> B(npm install)
+    B --> C(npm run build @ frontend)
+    C --> D(npm run start @ backend)
+    E --> F(deployed @ localhost:8080/)
