@@ -3,8 +3,7 @@ import { Button, Container } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-class Info extends React.Component
-{
+class Info extends React.Component {
     state = {
         id: "",
         pregunta: "",
@@ -13,8 +12,7 @@ class Info extends React.Component
         targets: []
     }
 
-    componentDidMount()
-    {
+    componentDidMount() {
         const qId = new URLSearchParams(window.location.search).get("id");
         if (qId) {
             axios.get("Pregunta?id=" + qId).then(response => {
@@ -27,8 +25,7 @@ class Info extends React.Component
         }
     }
 
-    render()
-    {
+    render() {
         const { pregunta, respuesta, drags, targets } = this.state;
         return (
             <Container className="MarginContainer">

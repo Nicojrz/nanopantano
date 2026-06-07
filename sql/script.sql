@@ -1,5 +1,7 @@
 DROP DATABASE IF EXISTS nanopantano;
+
 CREATE DATABASE nanopantano;
+
 use nanopantano;
 
 show tables;
@@ -7,9 +9,14 @@ show tables;
 desc usuario;
 
 INSERT INTO
-	usuario (usuario_id, usuario_name, usuario_password, usuario_type)
+    usuario (
+        usuario_id,
+        usuario_name,
+        usuario_password,
+        usuario_type
+    )
 VALUES
-	(UUID(), 'admin', '1234', 'administrador');
+    (UUID (), 'admin', '1234', 'administrador');
 
 INSERT INTO
     tablajson (columnajson)

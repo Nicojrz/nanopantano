@@ -4,16 +4,14 @@ import { Link } from "react-router-dom";
 import Pregunta from "../elements/Pregunta.jsx"
 import axios from "axios";
 
-class Administrator extends React.Component
-{
+class Administrator extends React.Component {
     state = {
         data: [],
         showAlert: false,
         alertText: ""
     }
 
-    componentDidMount()
-    {
+    componentDidMount() {
         axios.get("Preguntas").then(response => {
             this.setState({ data: response.data });
         }).catch(error => {
@@ -22,8 +20,7 @@ class Administrator extends React.Component
         })
     }
 
-    render()
-    {
+    render() {
         const { data, showAlert, alertText } = this.state;
         return (
             <Container className="MarginContainer" >

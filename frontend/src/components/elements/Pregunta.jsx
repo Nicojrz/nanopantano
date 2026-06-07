@@ -26,7 +26,7 @@ const Pregunta = ({ id, pregunta }) => {
                     className="M-6">
                     <Link to={`/eliminar?id=${id}`} className="CustomLink" >
                         Eliminar pregunta
-                    </Link>                    
+                    </Link>
                 </Button>
             </td>
         </tr>

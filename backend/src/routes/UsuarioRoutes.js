@@ -5,6 +5,6 @@ const authService = require("../service/UsuarioService");
 const router = express.Router();
 const authController = new AuthController(authService);
 
-router.get("/Login", authController.login);
+router.get("/login", authController.login);
 
 module.exports = router;
