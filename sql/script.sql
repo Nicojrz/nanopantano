@@ -3,7 +3,7 @@ CREATE DATABASE nanopantano;
 use nanopantano;
 
 INSERT INTO
-    login (USERNAME, PASSWORD, TIPOUSUARIO)
+    User (USERNAME, PASSWORD, TIPOUSUARIO)
 VALUES
     ('admin', '1234', 'administrador');
 
