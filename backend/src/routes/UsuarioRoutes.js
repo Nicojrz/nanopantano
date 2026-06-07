@@ -1,8 +1,8 @@
 const express = require("express");
 const QuestionController = require("../controller/QuestionController");
-const AuthController = require("../controller/UserController");
+const AuthController = require("../controller/UsuarioController");
 const questionService = require("../service/QuestionService");
-const authService = require("../service/UserService");
+const authService = require("../service/UsuarioService");
 
 const router = express.Router();
 const questionController = new QuestionController(questionService);
