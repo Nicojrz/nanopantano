@@ -1,7 +1,5 @@
 DROP DATABASE IF EXISTS nanopantano;
-
 CREATE DATABASE nanopantano;
-
 use nanopantano;
 
 CREATE TABLE login (
