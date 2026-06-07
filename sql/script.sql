@@ -2,24 +2,10 @@ DROP DATABASE IF EXISTS nanopantano;
 CREATE DATABASE nanopantano;
 use nanopantano;
 
-CREATE TABLE login (
-    idLOGIN INT NOT NULL AUTO_INCREMENT,
-    USERNAME VARCHAR(45) NOT NULL UNIQUE,
-    PASS VARCHAR(45) NOT NULL,
-    TIPOUSUARIO VARCHAR(45) NOT NULL,
-    PRIMARY KEY (idLOGIN)
-);
-
 INSERT INTO
-    login (USERNAME, PASS, TIPOUSUARIO)
+    login (USERNAME, PASSWORD, TIPOUSUARIO)
 VALUES
     ('admin', '1234', 'administrador');
-
-CREATE TABLE tablajson (
-    idEjercicio INT NOT NULL AUTO_INCREMENT,
-    columnajson JSON,
-    PRIMARY KEY (idEjercicio)
-);
 
 insert into
     tablajson (columnajson)

@@ -1,18 +1,32 @@
-class UserModel {
-  constructor(dbConfig) {
-    this.dbConfig = dbConfig;
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/DatabaseSequelize");
+
+const User = sequelize.define(
+  "login",
+  {
+    idLOGIN: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    USERNAME: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+      unique: true,
+    },
+    PASSWORD: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+    },
+    TIPOUSUARIO: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+    },
+  },
+  {
+    tableName: "login",
+    timestamps: false,
   }
+);
 
-  async findByCredentials(username, password) {
-    const connection = this.dbConfig.createConnection();
-
-    try {
-      const [rows] = await connection.query("SELECT * FROM login WHERE USERNAME = ? AND PASS = ?", [username, password]);
-      return rows[0] || null;
-    } finally {
-      await connection.end();
-    }
-  }
-}
-
-module.exports = UserModel;
+module.exports = User;

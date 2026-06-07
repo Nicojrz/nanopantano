@@ -10,7 +10,13 @@ class UserService {
       return { status: "no", tipo: "nodefinido" };
     }
 
-    const user = await this.userModel.findByCredentials(username, password);
+    const user = await this.userModel.findOne({
+      where: {
+        USERNAME: username,
+        PASSWORD: password,
+      },
+    });
+
     if (!user) {
       return { status: "no", tipo: "nodefinido" };
     }
@@ -19,4 +25,4 @@ class UserService {
   }
 }
 
-module.exports = new UserService(new UserModel(require("../config/DatabaseConfig")));
+module.exports = new UserService(UserModel);

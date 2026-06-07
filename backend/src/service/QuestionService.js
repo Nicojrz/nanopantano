@@ -15,12 +15,14 @@ class QuestionService {
       throw new Error("El id de ejercicio debe ser un número válido.");
     }
 
-    return this.questionModel.findById(parsedId);
+    const question = await this.questionModel.findByPk(parsedId);
+    return question ? [question.columnajson] : [];
   }
 
   async getAllQuestions() {
-    return this.questionModel.findAll();
+    const questions = await this.questionModel.findAll();
+    return questions.map((question) => question.columnajson);
   }
 }
 
-module.exports = new QuestionService(new QuestionModel(require("../config/DatabaseConfig")));
+module.exports = new QuestionService(QuestionModel);
