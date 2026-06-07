@@ -12,8 +12,8 @@ class UserService {
 
     const user = await this.userModel.findOne({
       where: {
-        USERNAME: username,
-        PASSWORD: password,
+        user_name: username,
+        user_password: password,
       },
     });
 
@@ -21,7 +21,7 @@ class UserService {
       return { status: "no", tipo: "nodefinido" };
     }
 
-    return { status: "yes", tipo: user.TIPOUSUARIO || "nodefinido" };
+    return { status: "yes", tipo: user.user_type || "nodefinido" };
   }
 }
 
