@@ -39,7 +39,7 @@ class Login extends React.Component {
     return (
       <div>
         <div className="container-fluid p-5 bg-primary text-white text-center">
-          <h1>LOGIN-CRUD</h1>
+          <h1>nanopantano</h1>
         </div>
         <div className="container mt-5">
           <div className="row">
