@@ -9,7 +9,7 @@ class Login extends React.Component {
   }
 
   validar = (usuario, password) => {
-    fetch('login?user=' + usuario + '&password=' + password + '')
+    fetch('/api/login?user=' + usuario + '&password=' + password + '')
       .then(response => response.json())
       .then(usuario => {
         if (usuario.status == "yes") {

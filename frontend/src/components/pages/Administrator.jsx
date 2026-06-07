@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Pregunta from "../elements/Pregunta.jsx"
+import Pregunta from "../elements/Sesion.jsx"
 import axios from "axios";
 
 class Administrator extends React.Component {
@@ -12,7 +12,7 @@ class Administrator extends React.Component {
     }
 
     componentDidMount() {
-        axios.get("Preguntas").then(response => {
+        axios.get("/api/sesiones").then(response => {
             this.setState({ data: response.data });
         }).catch(error => {
             console.info(error);
