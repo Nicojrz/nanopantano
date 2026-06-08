@@ -1,10 +1,11 @@
 const express = require("express");
-const AuthController = require("../controller/UsuarioController");
-const authService = require("../service/UsuarioService");
+const UsuarioController = require("../controller/UsuarioController");
+const UsuarioService = require("../service/UsuarioService");
 
 const router = express.Router();
-const authController = new AuthController(authService);
+const usuarioController = new UsuarioController(new UsuarioService());
 
-router.get("/api/login", authController.login);
+router.post("/login", usuarioController.login);
+router.post("/usuarios", usuarioController.register);
 
 module.exports = router;

@@ -1,11 +1,12 @@
 const path = require("path");
 const express = require("express");
-const routes = require("./routes/UsuarioRoutes");
+const routes = require("./routes");
 const noCache = require("./middleware/NoCache");
 const errorHandler = require("./middleware/ErrorHandler");
 const sequelize = require("./config/DatabaseSequelize");
 
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+require("./model");
 
 const app = express();
 const port = Number(process.env.PORT || 8080);
